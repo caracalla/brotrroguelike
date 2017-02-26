@@ -79,6 +79,7 @@
   // Handle key presses
   document.body.addEventListener("keydown", function(event) {
     context.clearRect(0, 0, width, height);
+    context.fillText("\uD83D\uDC0D", 33, 30); // snake
     drawGrid()
 
     switch(event.keyCode) {
@@ -117,12 +118,7 @@
     }
   }
 
-  drawGrid()
-
-  context.fillText("\uD83D\uDC0D", 33, 30)
-  context.fillText("\uD83D\uDE9A", 33, 62)
-  context.fillText("\u2B06\uFE0F", 65, 62) // up
-  context.fillText("\u27A1\uFE0F", 97, 62) // right
-  context.fillText("\u2B07\uFE0F", 129, 62) // down
-  context.fillText("\u2B05\uFE0F", 161, 62) // left
+  drawGrid();
+  context.fillText("\uD83D\uDC0D", 33, 30); // snake
+  player.draw();
 })();
