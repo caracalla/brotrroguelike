@@ -7,7 +7,7 @@
       this.display.render();
     },
 
-    onKeydown: function () {
+    onKeydown: function (event) {
       switch(event.keyCode) {
         case 38: //up
           game.player.moveForward();
