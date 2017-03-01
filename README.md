@@ -9,4 +9,3 @@ It's a roguelike.  You're a truck.  Use the arrow keys to turn and move around.
 * enemy population
 * combat
 * powerups
-*

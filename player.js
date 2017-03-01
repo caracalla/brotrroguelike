@@ -1,15 +1,12 @@
 (function () {
   window.game.player = {
-    cabXPos: 288,
-    cabYPos: 253,
-    trailerXPos: 256,
-    trailerYPos: 253,
+    // cabXPos: 288,
+    // cabYPos: 253,
+    // trailerXPos: 256,
+    // trailerYPos: 253,
+    cabPos: [22, 25],
+    trailerPos: [21, 25],
     direction: 0,
-
-    draw: function () {
-      game.context.fillText(this.cabIcon(), this.cabXPos, this.cabYPos);
-      game.context.fillText(this.trailerIcon(), this.trailerXPos, this.trailerYPos);
-    },
 
     turnCW: function () {
       this.direction += 90;
@@ -26,25 +23,23 @@
     },
 
     moveForward: function () {
-      this.trailerXPos = this.cabXPos;
-      this.trailerYPos = this.cabYPos;
-      this.cabXPos = this.nextCabPos()[0];
-      this.cabYPos = this.nextCabPos()[1];
+      this.trailerPos = this.cabPos;
+      this.cabPos = this.nextCabPos();
     },
 
     nextCabPos: function () {
       switch(this.direction) {
         case 0:
-          return [this.cabXPos + 32, this.cabYPos];
+          return [this.cabPos[0] + 1, this.cabPos[1]];
           break;
         case 90:
-          return [this.cabXPos, this.cabYPos + 32];
+          return [this.cabPos[0], this.cabPos[1] + 1];
           break;
         case 180:
-          return [this.cabXPos - 32, this.cabYPos];
+          return [this.cabPos[0] - 1, this.cabPos[1]];
           break;
         case 270:
-          return [this.cabXPos, this.cabYPos - 32];
+          return [this.cabPos[0], this.cabPos[1] - 1];
           break;
         default:
           console.log("player has an invalid direction!");
