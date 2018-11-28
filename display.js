@@ -44,6 +44,7 @@
     },
 
     drawBoard: function () {
+
     },
 
     drawPlayer: function () {
