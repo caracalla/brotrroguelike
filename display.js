@@ -3,12 +3,13 @@
     tileSize: 32,
     height: 15,
     width: 19,
-    canvas: document.getElementById("canvas"),
-    context: this.canvas.getContext("2d"),
     centralPixelX: 298,
     centralPixelY: 260,
 
-    init: function () {
+    init: function (canvas, context) {
+      this.canvas = canvas;
+      this.context = context;
+
       // set canvas defaults
       this.canvas.width = (this.tileSize * this.width) + this.width - 1;
       this.canvas.height = (this.tileSize * this.height) + this.height - 1;
@@ -21,7 +22,7 @@
       this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
       // draw board
       this.drawBoard();
-      // draw grid?
+      // draw grid? maybe we don't want a grid once there's a board
       this.drawGrid();
       // draw enemies, NPCs, objects
       this.drawObject(game.snake);
@@ -34,12 +35,12 @@
 
       // draw vertical lines
       for (var x = -1; x < this.canvas.width; x += (this.tileSize + 1)) {
-        line(x, 0, x, this.canvas.height, color);
+        this.line(x, 0, x, this.canvas.height, color);
       }
 
       // draw horizontal lines
       for (var y = -1; y < this.canvas.height; y += (this.tileSize + 1)) {
-        line(0, y, this.canvas.width, y, color);
+        this.line(0, y, this.canvas.width, y, color);
       }
     },
 
@@ -63,6 +64,7 @@
     },
 
     absoluteToRelative: function (absolutePosition) {
+      // Everything is relative to the player
       return [
         absolutePosition[0] - game.player.cabPos[0],
         absolutePosition[1] - game.player.cabPos[1]

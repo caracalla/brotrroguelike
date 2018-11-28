@@ -1,9 +1,11 @@
 (function () {
   window.game = {
     init: function () {
-      this.board.init();
-      this.display.init();
       document.body.addEventListener("keydown", this.onKeydown);
+
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      this.display.init(canvas, context);
       this.display.render();
     },
 

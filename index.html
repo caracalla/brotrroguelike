@@ -17,15 +17,23 @@
 
   <body>
     <canvas id="canvas"></canvas>
-    <h3>press arrow keys</h3>
-    <h3>use chrome</h3>
+    <h3>Controls:</h3>
+    <ul>
+      <li>Left arrow key: turn 90 degrees CCW</li>
+      <li>Right arrow key: turn 90 degrees CW</li>
+      <li>Up arrow key: move forward based on your current direction</li>
+    </ul>
+
+    <h3>use chrome (other browsers are currently untested)</h3>
   </body>
 
+<!-- why in the world am I using jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-<script type="text/javascript" src="lines.js"></script>
 <script type="text/javascript" src="game.js"></script>
-<script type="text/javascript" src="board.js"></script>
 <script type="text/javascript" src="display.js"></script>
+<script type="text/javascript" src="lines.js"></script>
 <script type="text/javascript" src="player.js"></script>
+
+<!-- main initiliazes everything else -->
 <script type="text/javascript" src="main.js"></script>
 </html>
